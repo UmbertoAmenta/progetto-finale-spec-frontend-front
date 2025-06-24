@@ -1,4 +1,7 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+
+// context
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function RacketsList() {
@@ -10,7 +13,7 @@ export default function RacketsList() {
 
   return (
     <main>
-      <h2>Lista racchette</h2>
+      {/* <h2>Lista racchette</h2> */}
       <div className="catalogo">
         <div>
           <h3>
@@ -19,7 +22,9 @@ export default function RacketsList() {
             "Esperto"
           </h3>
           {racketsExp.map((r) => (
-            <div key={r.id}>{r.title}</div>
+            <Link key={r.id} to={`/rackets/${r.id}`}>
+              <div>{r.title}</div>
+            </Link>
           ))}
         </div>
         <div>
@@ -29,7 +34,9 @@ export default function RacketsList() {
             "Intermedio"
           </h3>
           {racketsInt.map((r) => (
-            <div key={r.id}>{r.title}</div>
+            <Link key={r.id} to={`/rackets/${r.id}`}>
+              <div>{r.title}</div>
+            </Link>
           ))}
         </div>
         <div>
@@ -39,7 +46,9 @@ export default function RacketsList() {
             "Principiante"
           </h3>
           {racketsBeg.map((r) => (
-            <div key={r.id}>{r.title}</div>
+            <Link key={r.id} to={`/rackets/${r.id}`}>
+              <div>{r.title}</div>
+            </Link>
           ))}
         </div>
       </div>

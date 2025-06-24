@@ -7,11 +7,7 @@ export default function Menu() {
         {/* icona casa */}
         <NavLink to="/">Home</NavLink>
         {/* icona libro/catalogo */}
-        <NavLink to="/rackets" end>
-          Catalogo
-        </NavLink>
-        {/* icona racchetta */}
-        <NavLink to="/rackets/:id">Dettaglio</NavLink>
+        <NavLink to="/rackets">Catalogo</NavLink>
         {/* icona cuore */}
         <NavLink to="/whishlist">Le tue preferite</NavLink>
         {/* icona vs */}
