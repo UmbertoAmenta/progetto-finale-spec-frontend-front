@@ -93,22 +93,64 @@ aside {
     gap: 15px;
     padding: 0 15px;
 
-    a {
-      padding: 10px 15px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: var(--primary-color-layout);
-      font-weight: 500;
+    > div {
+      img {
+        width: 25px;
+        background-color: white;
+        border-radius: 50%;
+      }
 
-      &:hover {
-        background-color: #bbdefb;
-        color: #0d47a1;
+      a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--primary-color-layout);
+        font-weight: 500;
+
+        &:hover {
+          background-color: #bbdefb;
+          color: #0d47a1;
+        }
+      }
+
+      .active {
+        background-color: var(--primary-color-layout);
+        color: #fff;
       }
     }
+  }
+}
 
-    .active {
-      background-color: var(--primary-color-layout);
-      color: #fff;
+/* HOME */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+
+  > div:first-of-type {
+    background-color: var(--secondary-color-layout);
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.8);
+  }
+
+  > div:first-of-type,
+  .features > div {
+    border-radius: 20px;
+    padding: 25px 20px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 25px;
+
+    > div {
+      background-color: var(--secondary-color-page);
+      box-shadow: 0 0 5px rgba(25, 210, 56, 0.8);
     }
   }
 }
@@ -394,6 +436,59 @@ aside {
         margin: 5px;
         display: inline-block;
       }
+    }
+  }
+}
+
+/* GAMEMODE */
+.gamemode {
+  .table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid black;
+
+    img {
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    .search {
+      position: relative;
+    }
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 5;
+      padding: 0;
+      list-style: none;
+    }
+  }
+  .table-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .col-params,
+  .col-racket {
+    display: grid;
+
+    > * {
+      margin: 5px;
+    }
+  }
+
+  .col-params {
+    :first-child {
+      height: 150px;
+    }
+  }
+
+  .col-racket {
+    img {
+      height: 150px;
+      border: 1px solid black;
     }
   }
 }

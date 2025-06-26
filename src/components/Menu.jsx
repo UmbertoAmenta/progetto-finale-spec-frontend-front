@@ -4,14 +4,33 @@ export default function Menu() {
   return (
     <aside>
       <nav>
-        {/* icona casa */}
-        <NavLink to="/">Home</NavLink>
-        {/* icona libro/catalogo */}
-        <NavLink to="/rackets">Catalogo</NavLink>
-        {/* icona cuore */}
-        <NavLink to="/whishlist">Le tue preferite</NavLink>
-        {/* icona vs */}
-        <NavLink to="/vs">Challenge</NavLink>
+        <div>
+          <NavLink to="/">
+            <img src="/home.png" alt="home" />
+            Home
+          </NavLink>
+        </div>
+
+        <div>
+          <NavLink to="/rackets">
+            <img src="/catalogue.jpg" alt="catalogue" />
+            Catalogo
+          </NavLink>
+        </div>
+
+        <div>
+          <NavLink to="/whishlist">
+            <img src="/whishlist.jpg" alt="whishlist" />
+            Le tue preferite
+          </NavLink>
+        </div>
+
+        <div>
+          <NavLink to="/vs">
+            <img src="/vs.jpg" alt="vs" />
+            Challenge
+          </NavLink>
+        </div>
       </nav>
     </aside>
   );
