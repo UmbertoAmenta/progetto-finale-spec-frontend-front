@@ -5,7 +5,10 @@ export const GlobalContext = createContext();
 export function GlobalProvider({ children }) {
   const [rackets, setRackets] = useState([]);
   const [racket, setRacket] = useState(null);
-  const [wishRackets, setWishRackets] = useState([]);
+  const [wishRackets, setWishRackets] = useState(() => {
+    const saved = localStorage.getItem("wishRackets");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   useEffect(() => {
     (async () => {
@@ -31,6 +34,10 @@ export function GlobalProvider({ children }) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("wishRackets", JSON.stringify(wishRackets));
+  }, [wishRackets]);
 
   return (
     <GlobalContext.Provider

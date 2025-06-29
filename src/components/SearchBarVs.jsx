@@ -4,6 +4,7 @@ export default function SearchBarVs({
   results,
   onSelect,
   wishRackets,
+  vsRackets,
 }) {
   return (
     <span className="search">
@@ -19,6 +20,7 @@ export default function SearchBarVs({
             <li key={r.id} onClick={() => onSelect(r)}>
               {r.title}
               {wishRackets.some((wr) => wr.id === r.id) && <span>🩷</span>}
+              {vsRackets.some((vsr) => vsr.id === r.id) && <span>🆚</span>}
             </li>
           ))}
         </ul>

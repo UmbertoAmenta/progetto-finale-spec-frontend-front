@@ -11,7 +11,7 @@ export default function GameMode() {
   const { rackets, loadRacket, racket, wishRackets } =
     useContext(GlobalContext);
 
-  const [searchInputs, setSearchInputs] = useState(["", "", "", ""]);
+  const [searchInputs, setSearchInputs] = useState([""]);
 
   const searchedRackets = searchInputs.map((input) =>
     rackets.filter((r, index) =>
@@ -19,7 +19,7 @@ export default function GameMode() {
     )
   );
 
-  const [vsRackets, setVsRackets] = useState(["", "", "", ""]);
+  const [vsRackets, setVsRackets] = useState([""]);
   const [actualIndex, setActualIndex] = useState(null);
 
   useEffect(() => {
@@ -33,12 +33,27 @@ export default function GameMode() {
     }
   }, [racket, actualIndex]);
 
+  const addCol = () => {
+    setSearchInputs([...searchInputs, ""]);
+    setVsRackets([...vsRackets, ""]);
+  };
+
+  const removeCol = (actualIndex) => {
+    setSearchInputs(searchInputs.filter((_, index) => index !== actualIndex));
+    setVsRackets(vsRackets.filter((_, index) => index !== actualIndex));
+  };
+
   return (
     <main className="gamemode">
       <div className="table">
         <div className="params-col">
           <div className="table-header">
-            <img src="/vs.jpg" alt="" />
+            <img
+              src="/vs.jpg"
+              alt=""
+              onClick={addCol}
+              title="Aggiungi racchetta al confronto"
+            />
           </div>
 
           <div className="table-content">
@@ -64,13 +79,13 @@ export default function GameMode() {
           <div className="racket-col" key={index}>
             <div className="table-header">
               <SearchBarVs
-                value={searchInputs[index]}
+                value={searchInputs[index] ?? ""}
                 onChange={(e) => {
                   const newRackets = [...searchInputs];
                   newRackets[index] = e.target.value;
                   setSearchInputs(newRackets);
                 }}
-                results={searchedRackets[index]}
+                results={searchedRackets[index] ?? ""}
                 onSelect={(r) => {
                   setActualIndex(index);
                   loadRacket(r.id);
@@ -79,10 +94,30 @@ export default function GameMode() {
                   setSearchInputs(newInput);
                 }}
                 wishRackets={wishRackets}
+                vsRackets={vsRackets}
               />
+              {searchInputs[index].trim().length > 0 &&
+                searchedRackets[index].length === 0 && (
+                  <div className="empty-search">Nessun risultato trovato</div>
+                )}
+              {vsRackets.length > 2 && (
+                <div>
+                  <button onClick={() => removeCol(index)}>x</button>
+                </div>
+              )}
             </div>
+
             <div className="table-content">
-              {r ? <RacketDetailsVs racket={r} /> : null}
+              {r ? (
+                <RacketDetailsVs racket={r} />
+              ) : (
+                <div className="gm-empty">
+                  <p>
+                    Premi il pulsantone <span>vs</span> e aggiungi un nuovo
+                    avversario al confronto!
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         ))}
