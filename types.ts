@@ -1,0 +1,20 @@
+export type Racket = {
+  title: string;
+  category: "expert" | "intermediate" | "beginner";
+  brand: string;
+  model: string;
+  release_year: number;
+  string_bed_size: number;
+  weight_unstrung: number;
+  balance: number;
+  string_pattern: string;
+  frame_profile: string;
+  stiffness?: number;
+  length?: number;
+  material?: string;
+  recommended_tension: string;
+  technologies?: string[];
+  description?: string;
+  image: string;
+  price: number;
+};
