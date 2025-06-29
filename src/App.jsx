@@ -10,7 +10,7 @@ import DefaultLayout from "./layout/DefaultLayout.jsx";
 import Home from "./pages/Home";
 import RacketsList from "./pages/RacketsList";
 import RacketDetails from "./pages/RacketDetails";
-import WhishList from "./pages/WhishList.jsx";
+import WishList from "./pages/WishList.jsx";
 import GameMode from "./pages/GameMode.jsx";
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="rackets" element={<RacketsList />} />
             <Route path="rackets/:id" element={<RacketDetails />} />
-            <Route path="whishlist" element={<WhishList />} />
+            <Route path="wishlist" element={<WishList />} />
             <Route path="vs" element={<GameMode />} />
           </Route>
         </Routes>

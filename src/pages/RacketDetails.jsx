@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 // context
@@ -6,7 +6,8 @@ import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function RacketDetails() {
   const { id } = useParams();
-  const { racket, loadRacket } = useContext(GlobalContext);
+  const { racket, loadRacket, wishRackets, setWishRackets } =
+    useContext(GlobalContext);
 
   const imgPlaceholder = "/imgPlaceholder.jpg";
 
@@ -15,6 +16,17 @@ export default function RacketDetails() {
   }, [id]);
 
   const selected = racket?.racket;
+
+  const addToWish = () => {
+    if (!wishRackets.some((r) => r.id === selected.id)) {
+      setWishRackets((prev) => [...prev, selected]);
+    } else {
+      setWishRackets(wishRackets.filter((r) => r.id !== selected.id));
+    }
+  };
+  const isWished = wishRackets.some((r) => r.id === selected?.id);
+
+  console.log(wishRackets);
 
   if (!racket) {
     return (
@@ -50,6 +62,9 @@ export default function RacketDetails() {
         <span>
           <h2>{selected.release_year}</h2>
         </span>
+        <button className="wish-button" onClick={addToWish} type="button">
+          {isWished ? "🩷" : "🤍"}
+        </button>
       </div>
       <div className="grid">
         <div className="img">

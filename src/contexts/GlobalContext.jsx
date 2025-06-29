@@ -5,6 +5,7 @@ export const GlobalContext = createContext();
 export function GlobalProvider({ children }) {
   const [rackets, setRackets] = useState([]);
   const [racket, setRacket] = useState(null);
+  const [wishRackets, setWishRackets] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -33,7 +34,15 @@ export function GlobalProvider({ children }) {
 
   return (
     <GlobalContext.Provider
-      value={{ rackets, setRackets, racket, setRacket, loadRacket }}
+      value={{
+        rackets,
+        setRackets,
+        racket,
+        setRacket,
+        loadRacket,
+        wishRackets,
+        setWishRackets,
+      }}
     >
       {children}
     </GlobalContext.Provider>
