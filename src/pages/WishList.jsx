@@ -6,6 +6,7 @@ import { GlobalContext } from "../contexts/GlobalContext";
 export default function WishList() {
   const { wishRackets, setWishRackets } = useContext(GlobalContext);
 
+  // Elimina dai preferiti
   const notWished = (id) => {
     setWishRackets(wishRackets.filter((r) => r.id !== id));
   };

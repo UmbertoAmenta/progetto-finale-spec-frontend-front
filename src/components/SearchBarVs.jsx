@@ -1,3 +1,4 @@
+// Barra di ricerca in tempo reale con dropdown con icone per preferiti e già in confronto
 export default function SearchBarVs({
   value,
   onChange,

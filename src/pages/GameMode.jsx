@@ -22,6 +22,7 @@ export default function GameMode() {
   const [vsRackets, setVsRackets] = useState([""]);
   const [actualIndex, setActualIndex] = useState(null);
 
+  // Gestione array di racchette da confrontare, aggiornato al cambiare dei suoi elementi. Con verifica che i dati siano presenti
   useEffect(() => {
     if (racket && racket.success && actualIndex != null) {
       setVsRackets((rs) => {
@@ -33,11 +34,14 @@ export default function GameMode() {
     }
   }, [racket, actualIndex]);
 
+  // Gestione slot di racchette da confrontare
+  // - aggiunta
   const addCol = () => {
     setSearchInputs([...searchInputs, ""]);
     setVsRackets([...vsRackets, ""]);
   };
 
+  // - riduzione
   const removeCol = (actualIndex) => {
     setSearchInputs(searchInputs.filter((_, index) => index !== actualIndex));
     setVsRackets(vsRackets.filter((_, index) => index !== actualIndex));

@@ -10,6 +10,7 @@ export function GlobalProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
 
+  // richiesta dei dati parziali di tutte le racchette al mount del componente
   useEffect(() => {
     (async () => {
       try {
@@ -22,6 +23,7 @@ export function GlobalProvider({ children }) {
     })();
   }, []);
 
+  // richiesta dei dati completi della singola racchetta
   const loadRacket = async (id) => {
     setRacket(null);
 
@@ -35,6 +37,7 @@ export function GlobalProvider({ children }) {
     }
   };
 
+  // salvataggio della lista preferiti nel local storage al modificarsi della lista stessa
   useEffect(() => {
     localStorage.setItem("wishRackets", JSON.stringify(wishRackets));
   }, [wishRackets]);

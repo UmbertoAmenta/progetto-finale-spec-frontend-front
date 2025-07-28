@@ -11,13 +11,15 @@ export default function RacketDetails() {
 
   const imgPlaceholder = "/imgPlaceholder.jpg";
 
+  // Carica i dati della relativa racchetta
   useEffect(() => {
     if (id) loadRacket(id);
   }, [id]);
 
   const selected = racket?.racket;
 
-  const addToWish = () => {
+  // Aggiunge alla lista preferiti, se già presente elimina dalla lista
+  const toggleWish = () => {
     if (!wishRackets.some((r) => r.id === selected.id)) {
       setWishRackets((prev) => [...prev, selected]);
     } else {
@@ -26,8 +28,7 @@ export default function RacketDetails() {
   };
   const isWished = wishRackets.some((r) => r.id === selected?.id);
 
-  console.log(wishRackets);
-
+  // Lista vuota
   if (!racket) {
     return (
       <main className="details-load">
@@ -62,7 +63,7 @@ export default function RacketDetails() {
         <span>
           <h2>{selected.release_year}</h2>
         </span>
-        <button className="wish-button" onClick={addToWish} type="button">
+        <button className="wish-button" onClick={toggleWish} type="button">
           {isWished ? "🩷" : "🤍"}
         </button>
       </div>

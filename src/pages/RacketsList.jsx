@@ -12,6 +12,7 @@ export default function RacketsList() {
     r.title.toLowerCase().includes(searchInput.trim().toLowerCase())
   );
 
+  // Inizializzazione categorie e loro filtro
   const [categories, setCategories] = useState({
     expert: true,
     intermediate: true,

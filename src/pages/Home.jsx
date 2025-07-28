@@ -1,6 +1,7 @@
 export default function Home() {
   return (
     <main className="home">
+      {/* Hero */}
       <div>
         <h1>Trova la racchetta perfetta per te! 🎾</h1>
         <h3>
@@ -8,6 +9,8 @@ export default function Home() {
           di gioco!
         </h3>
       </div>
+
+      {/* Descrizione funzionalità web app */}
       <div className="features">
         <div>
           <span>🔍</span>

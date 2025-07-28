@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 // context
 import { GlobalContext } from "../contexts/GlobalContext";
 
+// Menù laterale
 export default function Menu() {
   const { wishRackets } = useContext(GlobalContext);
 
@@ -17,6 +18,7 @@ export default function Menu() {
   return (
     <aside>
       <nav>
+        {/* Home page */}
         <div>
           <NavLink to="/">
             <img src="/home.png" alt="home" />
@@ -24,6 +26,7 @@ export default function Menu() {
           </NavLink>
         </div>
 
+        {/* Catalogo */}
         <div>
           <NavLink to="/rackets">
             <img src="/catalogue.jpg" alt="catalogue" />
@@ -31,6 +34,7 @@ export default function Menu() {
           </NavLink>
         </div>
 
+        {/* Lista preferiti - con indice numerico elementi nella lista */}
         <div>
           <NavLink to="/wishlist">
             <img src="/wishlist.jpg" alt="wishlist" />
@@ -39,6 +43,7 @@ export default function Menu() {
           </NavLink>
         </div>
 
+        {/* Pagina di confronto */}
         <div>
           <NavLink to="/vs">
             <img src="/vs.jpg" alt="vs" />

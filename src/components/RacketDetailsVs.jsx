@@ -1,3 +1,4 @@
+// Dettagli singola racchetta in pagina di confronto, con semplice tooltip per i contenuti più grandi
 export default function RacketDetailsVs({ racket }) {
   if (!racket) {
     return null;

@@ -1,5 +1,6 @@
 import Logo from "./Logo";
 
+// Header della pagina contenente logo e Titolo web app
 export default function Header() {
   return (
     <header>
