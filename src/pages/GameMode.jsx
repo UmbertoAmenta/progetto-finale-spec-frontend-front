@@ -11,7 +11,7 @@ export default function GameMode() {
   const { rackets, loadRacket, racket, wishRackets } =
     useContext(GlobalContext);
 
-  const [searchInputs, setSearchInputs] = useState([""]);
+  const [searchInputs, setSearchInputs] = useState(["", ""]);
 
   const searchedRackets = searchInputs.map((input) =>
     rackets.filter((r, index) =>
@@ -19,7 +19,7 @@ export default function GameMode() {
     )
   );
 
-  const [vsRackets, setVsRackets] = useState([""]);
+  const [vsRackets, setVsRackets] = useState(["", ""]);
   const [actualIndex, setActualIndex] = useState(null);
 
   // Gestione array di racchette da confrontare, aggiornato al cambiare dei suoi elementi. Con verifica che i dati siano presenti
@@ -49,6 +49,10 @@ export default function GameMode() {
 
   return (
     <main className="gamemode">
+      <div className="compare-tip">
+        Aggiungi più racchette al confronto con il pulsante VS!
+      </div>
+
       <div className="table">
         <div className="params-col">
           <div className="table-header">
@@ -116,10 +120,7 @@ export default function GameMode() {
                 <RacketDetailsVs racket={r} />
               ) : (
                 <div className="gm-empty">
-                  <p>
-                    Premi il pulsantone <span>vs</span> e aggiungi un nuovo
-                    avversario al confronto!
-                  </p>
+                  <p>⬆ Scegli la racchetta da confrontare</p>
                 </div>
               )}
             </div>

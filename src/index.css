@@ -574,6 +574,22 @@ aside {
   max-width: 100%;
   box-sizing: border-box;
 
+  .compare-tip {
+    max-width: fit-content;
+    margin: auto;
+    font-size: 13px;
+    color: var(--primary-color-page);
+    background-color: var(--secondary-color-layout);
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-weight: 500;
+
+    &::before {
+      content: "↙ ";
+    }
+  }
+
   .table {
     display: flex;
     justify-content: center;
@@ -615,6 +631,7 @@ aside {
 
       .table-header {
         border-top-left-radius: 20px;
+
         img {
           width: 50px;
           border-radius: 50%;
@@ -783,9 +800,20 @@ aside {
     }
   }
 
-  .gamemode .table {
-    justify-content: flex-start;
-    font-size: 14px;
+  .gamemode {
+    .compare-tip {
+      font-size: 12px;
+      margin-left: 0;
+
+      &::before {
+        content: "⬇ ";
+      }
+    }
+
+    .table {
+      justify-content: flex-start;
+      font-size: 14px;
+    }
   }
 }
 
