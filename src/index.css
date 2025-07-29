@@ -2,9 +2,14 @@
 :root {
   --primary-color-layout: #1976d2;
   --secondary-color-layout: #e3f2fd;
+
   --primary-color-page: #388e3c;
   --secondary-color-page: #f1f8e9;
+
   --primary-background-color: #f5f7fa;
+
+  --b-radius-l: 20px;
+  --b-radius-m: 10px;
 }
 
 /* RESET */
@@ -23,7 +28,7 @@
 .logo {
   width: 50px;
   height: 50px;
-  border-radius: 25px;
+  border-radius: 50%;
 }
 
 /* LAYOUT */
@@ -104,7 +109,7 @@ aside {
         align-items: center;
         gap: 5px;
         padding: 10px 15px;
-        border-radius: 10px;
+        border-radius: var(--b-radius-m);
         text-decoration: none;
         color: var(--primary-color-layout);
         font-weight: 500;
@@ -137,7 +142,7 @@ aside {
 
   > div:first-of-type,
   .features > div {
-    border-radius: 20px;
+    border-radius: var(--b-radius-l);
     padding: 25px 20px;
   }
 
@@ -175,7 +180,7 @@ aside {
     justify-content: center;
     align-items: center;
     background-color: var(--secondary-color-layout);
-    border-radius: 10px;
+    border-radius: var(--b-radius-l);
     padding: 10px 5px;
   }
 
@@ -183,7 +188,7 @@ aside {
     input {
       padding: 10px 15px;
       border: 2px solid var(--primary-color-layout);
-      border-radius: 10px;
+      border-radius: var(--b-radius-m);
     }
   }
 
@@ -240,7 +245,7 @@ aside {
   > div {
     background-color: var(--secondary-color-page);
     padding: 20px 15px;
-    border-radius: 10px;
+    border-radius: var(--b-radius-l);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
     h3 {
@@ -259,7 +264,7 @@ aside {
       padding: 10px;
       box-shadow: 0 4px 16px rgba(25, 118, 210, 0.1);
       background-color: #fff;
-      border-radius: 10px;
+      border-radius: var(--b-radius-m);
 
       > div {
         text-align: center;
@@ -281,7 +286,7 @@ aside {
 .no-category {
   background-color: var(--secondary-color-layout);
   color: var(--primary-color-layout);
-  border-radius: 20px;
+  border-radius: var(--b-radius-l);
   margin: 30px auto 0 auto;
   padding: 30px 20px;
   max-width: 50%;
@@ -306,7 +311,7 @@ aside {
 .details-load {
   background-color: var(--secondary-color-page);
   margin: 20px;
-  border-radius: 20px;
+  border-radius: var(--b-radius-l);
   color: var(--primary-color-page);
 
   a {
@@ -318,7 +323,7 @@ aside {
 .details {
   background-color: var(--secondary-color-page);
   margin: 20px;
-  border-radius: 20px;
+  border-radius: var(--b-radius-l);
 
   .breadcrumb {
     font-size: 0.98em;
@@ -387,7 +392,7 @@ aside {
     .description,
     .tech {
       background-color: white;
-      border-radius: 20px;
+      border-radius: var(--b-radius-l);
       padding: 10px 15px;
       box-shadow: 0 1px 6px rgba(25, 118, 210, 0.3);
       color: var(--primary-color-layout);
@@ -400,15 +405,15 @@ aside {
     > .info {
       background-color: var(--secondary-color-layout);
       color: var(--primary-color-layout);
-      border-radius: 16px;
-      padding: 12px 16px;
-      margin: 8px 0;
+      border-radius: var(--b-radius-l);
+      padding: 10px 15px;
+      margin: 10px 0;
 
       > .grid-info {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px 25px;
-        border-radius: 20px;
+        border-radius: var(--b-radius-l);
         background-color: white;
         padding: 10px;
 
@@ -446,8 +451,8 @@ aside {
       > div > p {
         background-color: var(--secondary-color-layout);
         color: var(--primary-color-layout);
-        border-radius: 10px;
-        padding: 4px 10px;
+        border-radius: var(--b-radius-m);
+        padding: 5px 10px;
         margin: 5px;
         display: inline-block;
       }
@@ -460,7 +465,7 @@ aside {
   .wish-page-header {
     background-color: var(--secondary-color-layout);
     color: var(--primary-color-layout);
-    border-radius: 20px;
+    border-radius: var(--b-radius-l);
     margin-bottom: 30px;
 
     h2 {
@@ -476,13 +481,13 @@ aside {
     gap: 20px;
     padding: 30px;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: var(--b-radius-l);
 
     .wish-card {
       display: flex;
       width: max-content;
       background: white;
-      border-radius: 20px;
+      border-radius: var(--b-radius-l);
       transition: box-shadow 0.2s;
       border: 1px solid var(--primary-color-layout);
       padding: 10px;
@@ -495,9 +500,9 @@ aside {
       .card-image {
         width: 150px;
         margin-right: 5px;
-        border-radius: 20px;
+        border-radius: var(--b-radius-l);
         background: var(--secondary-color-layout);
-        padding: 18px 0 10px 0;
+        padding: 10px 0;
         cursor: pointer;
 
         img {
@@ -584,7 +589,7 @@ aside {
     background-color: var(--secondary-color-layout);
     padding: 5px 15px;
     margin-bottom: 10px;
-    border-radius: 20px;
+    border-radius: var(--b-radius-l);
     font-weight: 500;
 
     &::before {
@@ -595,7 +600,7 @@ aside {
   .table {
     display: flex;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: var(--b-radius-l);
 
     .params-col,
     .racket-col {
@@ -621,7 +626,7 @@ aside {
           }
 
           > span {
-            height: 22px;
+            height: 20px;
           }
         }
       }
@@ -688,7 +693,7 @@ aside {
             max-width: 250px;
             width: 100%;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: var(--b-radius-m);
             border: 2px solid var(--primary-color-layout);
             background-color: var(--secondary-color-page);
             font-size: 16px;
@@ -706,7 +711,6 @@ aside {
             left: 50%;
             transform: translate(-50%);
             z-index: 5;
-            padding: 0;
             list-style: none;
             width: max-content;
             padding: 0 10px;
@@ -742,7 +746,7 @@ aside {
           background-color: var(--secondary-color-layout);
           color: var(--primary-color-layout);
           border: 2px solid var(--primary-color-layout);
-          border-radius: 20px;
+          border-radius: var(--b-radius-l);
           padding: 5px 20px;
           z-index: 2;
           white-space: nowrap;
