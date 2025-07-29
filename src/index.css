@@ -235,6 +235,7 @@ aside {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
+  align-items: flex-start;
 
   > div {
     background-color: var(--secondary-color-page);
@@ -497,6 +498,7 @@ aside {
         border-radius: 20px;
         background: var(--secondary-color-layout);
         padding: 18px 0 10px 0;
+        cursor: pointer;
 
         img {
           border-radius: 50%;

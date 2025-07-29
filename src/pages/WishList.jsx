@@ -1,10 +1,12 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 // context
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function WishList() {
   const { wishRackets, setWishRackets } = useContext(GlobalContext);
+  const nav = useNavigate();
 
   // Elimina dai preferiti
   const notWished = (id) => {
@@ -25,7 +27,10 @@ export default function WishList() {
         ) : (
           wishRackets.map((r) => (
             <div className="wish-card" key={r.id}>
-              <div className="card-image">
+              <div
+                className="card-image"
+                onClick={() => nav(`/rackets/${r.id}`)}
+              >
                 <img src={r.image} alt={r.brand} />
               </div>
               <div className="card-info">
